@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Gerador de Plano de Aula SENAI</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+
+<div class="left">
+
+<h1>Gerador de Plano de Aula</h1>
+
+
+<label>Nome do Curso</label>
+
+<select id="curso">
+
+<option>Desenvolvimento de Sistemas</option>
+
+<option>Informática para Internet</option>
+
+<option>Multimídia</option>
+
+<option>Edificações</option>
+
+</select>
+
+
+
+<label>Nome da Matéria</label>
+
+<input 
+id="materia"
+placeholder="Ex: Lógica de Programação"
+>
+
+
+
+<label>Estilo de Aula</label>
+
+<select id="estilo">
+
+<option>Seminário</option>
+
+<option>Gamificação</option>
+
+<option>Dinâmica</option>
+
+<option>Manual</option>
+
+<option>Ilustrativo</option>
+
+<option>Aula de Campo</option>
+
+<option>Escritório</option>
+
+<option>Kahoot</option>
+
+<option>Códigos</option>
+
+<option>Projetos</option>
+
+<option>Apresentação</option>
+
+</select>
+
+
+
+<label>Assunto da Aula</label>
+
+<input 
+id="assunto"
+placeholder="Ex: Variáveis em JavaScript"
+>
+
+
+
+<button onclick="gerar()">
+
+GERAR
+
+</button>
+
+
+</div>
+
+
+
+<div class="right">
+
+<div class="resultado" id="resultado">
+
+O resultado aparecerá aqui.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
