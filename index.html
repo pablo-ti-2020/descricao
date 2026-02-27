@@ -3,7 +3,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Gerador de Plano de Aula SENAI</title>
 
 <link rel="stylesheet" href="style.css">
@@ -24,11 +23,8 @@
 <select id="curso">
 
 <option>Desenvolvimento de Sistemas</option>
-
 <option>Informática para Internet</option>
-
 <option>Multimídia</option>
-
 <option>Edificações</option>
 
 </select>
@@ -45,33 +41,33 @@
 
 
 
-<label>Estilo de Aula</label>
+<label>Estilo de Aula (selecione até 2)</label>
 
-<select id="estilo">
+<div id="estilos">
 
-<option>Seminário</option>
+<label><input type="checkbox" value="Seminário"> Seminário</label>
 
-<option>Gamificação</option>
+<label><input type="checkbox" value="Gamificação"> Gamificação</label>
 
-<option>Dinâmica</option>
+<label><input type="checkbox" value="Dinâmica"> Dinâmica</label>
 
-<option>Manual</option>
+<label><input type="checkbox" value="Manual"> Manual</label>
 
-<option>Ilustrativo</option>
+<label><input type="checkbox" value="Ilustrativo"> Ilustrativo</label>
 
-<option>Aula de Campo</option>
+<label><input type="checkbox" value="Aula de Campo"> Aula de Campo</label>
 
-<option>Escritório</option>
+<label><input type="checkbox" value="Escritório"> Escritório</label>
 
-<option>Kahoot</option>
+<label><input type="checkbox" value="Kahoot"> Kahoot</label>
 
-<option>Códigos</option>
+<label><input type="checkbox" value="Códigos"> Códigos</label>
 
-<option>Projetos</option>
+<label><input type="checkbox" value="Projetos"> Projetos</label>
 
-<option>Apresentação</option>
+<label><input type="checkbox" value="Apresentação"> Apresentação</label>
 
-</select>
+</div>
 
 
 
@@ -79,15 +75,13 @@
 
 <input 
 id="assunto"
-placeholder="Ex: Variáveis em JavaScript"
+placeholder="Ex: Leitura de planta baixa"
 >
 
 
 
 <button onclick="gerar()">
-
 GERAR
-
 </button>
 
 
@@ -98,9 +92,7 @@ GERAR
 <div class="right">
 
 <div class="resultado" id="resultado">
-
 O resultado aparecerá aqui.
-
 </div>
 
 </div>
@@ -109,10 +101,8 @@ O resultado aparecerá aqui.
 </div>
 
 
-<!-- lista de matérias -->
 <script src="materias/edificacoes.js"></script>
 
-<!-- script principal -->
 <script src="script.js"></script>
 
 
