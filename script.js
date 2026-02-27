@@ -1,3 +1,69 @@
+// executa quando mudar o curso
+document.getElementById("curso").addEventListener("change", atualizarMaterias);
+
+// executa ao abrir a página
+atualizarMaterias();
+
+
+// função que preenche matérias
+function atualizarMaterias()
+{
+
+let curso = document.getElementById("curso").value;
+
+let selectMateria = document.getElementById("materia");
+
+
+// limpa tudo
+selectMateria.innerHTML = "";
+
+
+// se for edificações
+if(curso == "Edificações")
+{
+
+let optionInicial = document.createElement("option");
+
+optionInicial.value = "";
+
+optionInicial.text = "Selecione a matéria";
+
+selectMateria.appendChild(optionInicial);
+
+
+// percorre lista
+for(let i = 0; i < materiasEdificacoes.length; i++)
+{
+
+let option = document.createElement("option");
+
+option.value = materiasEdificacoes[i];
+
+option.text = materiasEdificacoes[i];
+
+selectMateria.appendChild(option);
+
+}
+
+}
+else
+{
+
+let option = document.createElement("option");
+
+option.value = "";
+
+option.text = "Nenhuma matéria cadastrada";
+
+selectMateria.appendChild(option);
+
+}
+
+}
+
+
+
+
 function gerar()
 {
 
@@ -22,7 +88,7 @@ return;
 
 
 
-// titulo
+// título
 
 let titulo = assunto;
 
@@ -32,15 +98,15 @@ let titulo = assunto;
 
 let descricaoInicial = 
 
-"A aula abordará o tema "+assunto+" na matéria "+materia+" do curso técnico em "+curso+", utilizando a metodologia de "+estilo+", com foco no desenvolvimento das competências técnicas aplicadas ao contexto profissional e industrial.";
+"A aula abordará o tema " + assunto + " na matéria " + materia + " do curso técnico em " + curso + ", utilizando a metodologia de " + estilo + ", com foco no desenvolvimento das competências técnicas aplicadas ao contexto profissional e industrial.";
 
 
 
-// estrategia
+// estratégia
 
 let estrategia = 
 
-"A aula será conduzida utilizando o formato de "+estilo+", permitindo que os técnicos acompanhem o desenvolvimento do conteúdo "+assunto+" de forma estruturada, com explicação detalhada e aplicação técnica conforme o contexto da matéria "+materia+".";
+"A aula será conduzida utilizando o formato de " + estilo + ", permitindo que os técnicos acompanhem o desenvolvimento do conteúdo " + assunto + " de forma estruturada, com explicação detalhada e aplicação técnica conforme o contexto da matéria " + materia + ".";
 
 
 
@@ -48,7 +114,7 @@ let estrategia =
 
 let recursos = 
 
-"Será utilizado ambiente adequado à execução da aula, com computadores, projetor multimídia, softwares necessários e recursos compatíveis com a metodologia "+estilo+", garantindo a correta apresentação do conteúdo "+assunto+".";
+"Será utilizado ambiente adequado à execução da aula, com computadores, projetor multimídia, softwares necessários e recursos compatíveis com a metodologia " + estilo + ", garantindo a correta apresentação do conteúdo " + assunto + ".";
 
 
 
@@ -56,11 +122,11 @@ let recursos =
 
 let atividade = 
 
-"Os técnicos irão participar da aula no formato "+estilo+", acompanhando a apresentação do conteúdo "+assunto+", observando a demonstração e executando atividades relacionadas à matéria "+materia+", compreendendo sua aplicação no contexto técnico.";
+"Os técnicos participarão da aula no formato " + estilo + ", acompanhando a apresentação do conteúdo " + assunto + ", observando a demonstração e executando atividades relacionadas à matéria " + materia + ", compreendendo sua aplicação no contexto técnico.";
 
 
 
-// avaliação fixa
+// avaliação
 
 let avaliacao = 
 
@@ -72,8 +138,9 @@ let avaliacao =
 
 let resultado = 
 
-"O técnico deverá ter compreendido o conteúdo "+assunto+" e sua aplicação no contexto da matéria "+materia+".\n"+
-"O técnico deverá ser capaz de reconhecer e aplicar os conceitos apresentados no curso técnico em "+curso+".";
+"O técnico deverá ter compreendido o conteúdo " + assunto + " e sua aplicação no contexto da matéria " + materia + ".\n" +
+
+"O técnico deverá ser capaz de reconhecer e aplicar os conceitos apresentados no curso técnico em " + curso + ".";
 
 
 
@@ -81,33 +148,31 @@ let resultado =
 
 let textoFinal =
 
-"Titulo, inicial\n\n"+
+"Título\n\n" +
 
-titulo+
+titulo +
 
-"\n\nDescricao, inicial\n\n"+
+"\n\nDescrição Inicial\n\n" +
 
-descricaoInicial+
+descricaoInicial +
 
-"\n\nagora transforme isso pelo que está abaixo (tambem corrija erros de portugues)\n\n"+
+"\n\nEstratégia\n\n" +
 
-"estrategia:\n\n"+
+estrategia +
 
-estrategia+
+"\n\nRecursos e Ambiente\n\n" +
 
-"\n\nrecursos e ambiente:\n\n"+
+recursos +
 
-recursos+
+"\n\nAtividade (Descrição da Aula)\n\n" +
 
-"\n\natividade (descricao da aula):\n\n"+
+atividade +
 
-atividade+
+"\n\nAvaliação\n\n" +
 
-"\n\nAvaliação:\n\n"+
+avaliacao +
 
-avaliacao+
-
-"\n\nResultado Esperado:\n\n"+
+"\n\nResultado Esperado\n\n" +
 
 resultado;
 
