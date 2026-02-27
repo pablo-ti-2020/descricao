@@ -1,11 +1,11 @@
-// executa quando mudar o curso
+// =============================
+// CONTROLE DAS MATÉRIAS
+// =============================
+
 document.getElementById("curso").addEventListener("change", atualizarMaterias);
 
-// executa ao abrir a página
 atualizarMaterias();
 
-
-// função que preenche matérias
 function atualizarMaterias()
 {
 
@@ -13,12 +13,8 @@ let curso = document.getElementById("curso").value;
 
 let selectMateria = document.getElementById("materia");
 
-
-// limpa tudo
 selectMateria.innerHTML = "";
 
-
-// se for edificações
 if(curso == "Edificações")
 {
 
@@ -31,7 +27,6 @@ optionInicial.text = "Selecione a matéria";
 selectMateria.appendChild(optionInicial);
 
 
-// percorre lista
 for(let i = 0; i < materiasEdificacoes.length; i++)
 {
 
@@ -63,6 +58,38 @@ selectMateria.appendChild(option);
 
 
 
+// =============================
+// LIMITE DE 2 CHECKBOXES
+// =============================
+
+let checkboxes = document.querySelectorAll("#estilos input");
+
+checkboxes.forEach(function(box)
+{
+
+box.addEventListener("change", function()
+{
+
+let marcados = document.querySelectorAll("#estilos input:checked");
+
+if(marcados.length > 2)
+{
+
+this.checked = false;
+
+alert("Você pode selecionar no máximo 2 estilos.");
+
+}
+
+});
+
+});
+
+
+
+// =============================
+// GERAR PLANO
+// =============================
 
 function gerar()
 {
@@ -71,16 +98,16 @@ let curso = document.getElementById("curso").value;
 
 let materia = document.getElementById("materia").value;
 
-let estilo = document.getElementById("estilo").value;
-
 let assunto = document.getElementById("assunto").value;
 
+let marcados = document.querySelectorAll("#estilos input:checked");
 
 
-if(materia == "" || assunto == "")
+
+if(materia == "" || assunto == "" || marcados.length != 2)
 {
 
-alert("Preencha todos os campos.");
+alert("Preencha tudo e selecione exatamente 2 estilos.");
 
 return;
 
@@ -88,92 +115,66 @@ return;
 
 
 
-// título
+let estilo = marcados[0].value + " e " + marcados[1].value;
+
+
 
 let titulo = assunto;
 
 
 
-// descrição inicial
-
 let descricaoInicial = 
-
 "A aula abordará o tema " + assunto + " na matéria " + materia + " do curso técnico em " + curso + ", utilizando a metodologia de " + estilo + ", com foco no desenvolvimento das competências técnicas aplicadas ao contexto profissional e industrial.";
 
 
 
-// estratégia
-
-let estrategia = 
-
-"A aula será conduzida utilizando o formato de " + estilo + ", permitindo que os técnicos acompanhem o desenvolvimento do conteúdo " + assunto + " de forma estruturada, com explicação detalhada e aplicação técnica conforme o contexto da matéria " + materia + ".";
+let estrategia =
+"A aula será conduzida utilizando os formatos de " + estilo + ", permitindo que os técnicos acompanhem o desenvolvimento do conteúdo " + assunto + " de forma estruturada, com explicação detalhada e aplicação técnica conforme o contexto da matéria " + materia + ".";
 
 
 
-// recursos
-
-let recursos = 
-
-"Será utilizado ambiente adequado à execução da aula, com computadores, projetor multimídia, softwares necessários e recursos compatíveis com a metodologia " + estilo + ", garantindo a correta apresentação do conteúdo " + assunto + ".";
+let recursos =
+"Será utilizado ambiente adequado à execução da aula, com computadores, projetor multimídia, softwares necessários e recursos compatíveis com as metodologias " + estilo + ", garantindo a correta apresentação do conteúdo " + assunto + ".";
 
 
 
-// atividade
-
-let atividade = 
-
-"Os técnicos participarão da aula no formato " + estilo + ", acompanhando a apresentação do conteúdo " + assunto + ", observando a demonstração e executando atividades relacionadas à matéria " + materia + ", compreendendo sua aplicação no contexto técnico.";
+let atividade =
+"Os técnicos participarão da aula nos formatos de " + estilo + ", acompanhando a apresentação do conteúdo " + assunto + ", observando a demonstração e executando atividades relacionadas à matéria " + materia + ", compreendendo sua aplicação no contexto técnico.";
 
 
 
-// avaliação
-
-let avaliacao = 
-
+let avaliacao =
 "Não será aplicada avaliação nesta aula.";
 
 
 
-// resultado esperado
-
-let resultado = 
-
+let resultado =
 "O técnico deverá ter compreendido o conteúdo " + assunto + " e sua aplicação no contexto da matéria " + materia + ".\n" +
-
 "O técnico deverá ser capaz de reconhecer e aplicar os conceitos apresentados no curso técnico em " + curso + ".";
 
 
 
-// texto final
-
 let textoFinal =
 
-"Título\n\n" +
-
+"TÍTULO\n\n" +
 titulo +
 
-"\n\nDescrição Inicial\n\n" +
-
+"\n\nDESCRIÇÃO INICIAL\n\n" +
 descricaoInicial +
 
-"\n\nEstratégia\n\n" +
-
+"\n\nESTRATÉGIA\n\n" +
 estrategia +
 
-"\n\nRecursos e Ambiente\n\n" +
-
+"\n\nRECURSOS E AMBIENTE\n\n" +
 recursos +
 
-"\n\nAtividade (Descrição da Aula)\n\n" +
-
+"\n\nATIVIDADE\n\n" +
 atividade +
 
-"\n\nAvaliação\n\n" +
-
+"\n\nAVALIAÇÃO\n\n" +
 avaliacao +
 
-"\n\nResultado Esperado\n\n" +
-
+"\n\nRESULTADO ESPERADO\n\n" +
 resultado;
 
 
